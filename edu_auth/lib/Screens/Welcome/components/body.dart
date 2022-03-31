@@ -1,4 +1,5 @@
 import 'package:edu_auth/Screens/Login/login_screen.dart';
+import 'package:edu_auth/Screens/Signup/signup_screen.dart';
 import 'package:edu_auth/Screens/Welcome/components/welcome_background.dart';
 import 'package:edu_auth/components/rounded_button.dart';
 import 'package:edu_auth/constant.dart';
@@ -15,7 +16,7 @@ class Body extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               "WELCOME TO EDU",
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
@@ -44,14 +45,14 @@ class Body extends StatelessWidget {
               color: kPrimaryLightColor,
               textColor: Colors.black,
               press: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) {
-                //       return SignUpScreen();
-                //     },
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return SignUpScreen();
+                    },
+                  ),
+                );
               },
             ),
           ],

@@ -1,4 +1,7 @@
 import 'package:edu_auth/Screens/Login/components/login_background.dart';
+import 'package:edu_auth/Screens/ShopHome/components/catalog_screen.dart';
+import 'package:edu_auth/Screens/ShopHome/shop_home.dart';
+import 'package:edu_auth/Screens/Signup/signup_screen.dart';
 import 'package:edu_auth/Screens/Welcome/welcome_screen.dart';
 import 'package:edu_auth/components/alreadyhaveacount_check.dart';
 import 'package:edu_auth/components/rounded_button.dart';
@@ -18,6 +21,16 @@ class Body extends StatelessWidget {
     return LoginBackground(
       child: SingleChildScrollView(
         child: Column(children: [
+          Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              child: IconButton(
+                onPressed: () => Navigator.of(context).pop(),
+                icon: const Icon(Icons.arrow_back_ios_new),
+                color: kPrimaryColor,
+              ),
+            ),
+          ),
           const Text(
             'LOGIN',
             style: TextStyle(fontWeight: FontWeight.bold),
@@ -42,13 +55,19 @@ class Body extends StatelessWidget {
           SizedBox(
             height: size.height * 0.02,
           ),
-          RoundedButton(text: 'LOGIN', press: () {}),
+          RoundedButton(
+              text: 'LOGIN',
+              press: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return ShopHome();
+                }));
+              }),
           AlreadyHaveAnAccountCheck(
             login: false,
             press: () {
               print("Signup");
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return WelcomeScreen();
+                return SignUpScreen();
               }));
             },
           )
